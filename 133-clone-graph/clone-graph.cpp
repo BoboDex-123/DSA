@@ -30,6 +30,7 @@ public:
 
         mp[node]=new Node(node->val);
         q.push(node);
+
         while(!q.empty())
         {
             Node* cur=q.front();
@@ -43,7 +44,7 @@ public:
                 }
                 mp[cur]->neighbors.push_back(mp[neighbor]);
             }
-        }    
+        }
         return mp[node];
     }
 };
