@@ -5,7 +5,6 @@ public:
         int n=coins.size();
         vector<int> minCoins(amount+1,amount+1);
         minCoins[0]=0;
-
         for(int i=1;i<=amount;i++)
         {
             for(int j=0;j<n;j++)
@@ -15,7 +14,7 @@ public:
                     minCoins[i]=min(minCoins[i],1+minCoins[i-coins[j]]);
                 }
             }
-        }
-        return minCoins[amount] != amount + 1 ? minCoins[amount] : -1;        
+        }        
+        return minCoins[amount]!=amount+1?minCoins[amount]:-1;
     }
 };
