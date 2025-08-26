@@ -2,10 +2,9 @@ class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) 
     {
-        int n=matrix.size();
-        int m=matrix[0].size();
+        int n=matrix.size(),m=matrix[0].size();
+        int side=0;
         vector<vector<int>> dp(n,vector<int>(m,0));
-        int max_side=0;
 
         for(int i=0;i<n;i++)
         {
@@ -21,10 +20,10 @@ public:
                     {
                         dp[i][j]=1+min({dp[i-1][j],dp[i][j-1],dp[i-1][j-1]});
                     }
-                    max_side=max(max_side,dp[i][j]);
+                    side=max(side,dp[i][j]);
                 }
             }
-        }    
-        return max_side*max_side;
+        }
+        return side*side;
     }
 };
